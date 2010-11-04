@@ -1,0 +1,10 @@
+Font=Consolas
+FontHeight=11
+Term=xterm-256color
+ScrollbackLines=100000
+CopyOnSelect=1
+RightClickAction=1
+CursorType=0
+CursorColour=0,255,0
+CursorBlinks=0
+BoldAsBright=1
