@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 # Universal profile initialization script
 # Written by Matt Bertolini
@@ -30,18 +30,19 @@ echo "Backing up existing profile files..."
 #  * Darwin = MacOPSYS
 OPSYS=$(uname -o 2>/dev/null || uname -s)
 
-#Download files common to all platforms
+# Download files common to all platforms. Please note that I am not checking 
+# the SSL certificate because of the way Github and wget handle wildcard certificates.
 echo "Downloading universal profile files..."
-wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.profile
-wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.bashrc
-wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.bash_aliases
-wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.vimrc
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.profile
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.bashrc
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.bash_aliases
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.vimrc
 
 #Download platform specific files
 
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
-	wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.minttyrc
+	wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.minttyrc
 fi
 
 # Finally, source the profile files
