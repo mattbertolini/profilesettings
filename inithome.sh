@@ -32,16 +32,16 @@ OPSYS=$(uname -o 2>/dev/null || uname -s)
 
 #Download files common to all platforms
 echo "Downloading universal profile files..."
-wget http://www.mattbertolini.com/profile/.profile
-wget http://www.mattbertolini.com/profile/.bashrc
-wget http://www.mattbertolini.com/profile/.bash_aliases
-wget http://www.mattbertolini.com/profile/.vimrc
+wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.profile
+wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.bashrc
+wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.bash_aliases
+wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.vimrc
 
 #Download platform specific files
 
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
-	wget http://www.mattbertolini.com/profile/.minttyrc
+	wget https://github.com/MaliciousMonkey/profilesettings/raw/master/.minttyrc
 fi
 
 # Finally, source the profile files
