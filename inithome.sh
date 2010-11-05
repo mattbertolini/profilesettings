@@ -25,6 +25,7 @@ echo "Backing up existing profile files..."
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak
 [ -f ~/.bash_aliases ] && mv ~/.bash_aliases ~/.bash_aliases.bak
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bak
+[ -f ~/.minttyrc ] && mv ~/.minttyrc ~/.minttyrc.bak
 
 # Get the operating system. Possible values:
 #  * GNU/Linux = Linux
