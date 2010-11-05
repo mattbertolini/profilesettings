@@ -4,12 +4,14 @@
 # Written by Matt Bertolini
 
 # Check to see if the tools required for this script to run exist
-if [ ! which wget ]; then
+type -P wget &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "Cannot proceed. No wget executable found."
 	exit 1
 fi
 
-if [ ! which uname ]; then
+type -P uname &>/dev/null
+if [ $? -ne 0 ]; then
 	echo "Cannot proceed. No uname executable found."
 	exit 1
 fi
@@ -27,7 +29,7 @@ echo "Backing up existing profile files..."
 # Get the operating system. Possible values:
 #  * GNU/Linux = Linux
 #  * Cygwin = Windows Cygwin prompts
-#  * Darwin = MacOPSYS
+#  * Darwin = MacOS
 OPSYS=$(uname -o 2>/dev/null || uname -s)
 
 # Download files common to all platforms. Please note that I am not checking 
