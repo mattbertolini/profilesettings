@@ -36,16 +36,16 @@ OPSYS=$(uname -o 2>/dev/null || uname -s)
 # Download files common to all platforms. Please note that I am not checking 
 # the SSL certificate because of the way Github and wget handle wildcard certificates.
 echo "Downloading universal profile files..."
-wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.profile
-wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.bashrc
-wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.bash_aliases
-wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.vimrc
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/profile -O .profile
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/bashrc -O .bashrc
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_aliases -O .bash_aliases
+wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/vimrc -O .vimrc
 
 #Download platform specific files
 
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
-	wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/.minttyrc
+	wget --no-check-certificate https://github.com/MaliciousMonkey/profilesettings/raw/master/minttyrc -O .minttyrc
 fi
 
 # Finally, source the profile files
