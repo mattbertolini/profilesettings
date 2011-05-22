@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
 fi
 
 function downloadWithCurl() {
-	curl $1 -o $2
+	curl --insecure $1 -o $2
 }
 
 function downloadWithWget() {
