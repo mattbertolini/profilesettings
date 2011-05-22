@@ -51,6 +51,8 @@ function up() { for i in $(seq 1 $1); do cd .. ; done }
 
 # MacOS specific settings
 if [ $OPSYS == "Darwin" ]; then
+    LSCOLORS=Exfxcxdxbxegedabagacad
+    
     # Fink init script. Check to see if it exists and source it if it does.
     [ -r /sw/bin/init.sh ] && . /sw/bin/init.sh
 fi
