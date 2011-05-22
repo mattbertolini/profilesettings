@@ -1,12 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Universal profile initialization script
 # Written by Matt Bertolini
 
 # Check to see if the tools required for this script to run exist
-type -P curl &>/dev/null
+command -v curl &>/dev/null
 HAS_CURL=$?
-type -P wget &>/dev/null
+command -v wget &>/dev/null
 HAS_WGET=$?
 
 if [[ $HAS_CURL -ne 0 && $HAS_WGET -ne 0 ]]; then
@@ -14,21 +14,21 @@ if [[ $HAS_CURL -ne 0 && $HAS_WGET -ne 0 ]]; then
 	exit 1
 fi
 
-type -P uname &>/dev/null
+command -v uname &>/dev/null
 if [ $? -ne 0 ]; then
 	echo "Cannot proceed. No uname executable found."
 	exit 1
 fi
 
-function downloadWithCurl() {
+downloadWithCurl() {
 	curl --insecure $1 -o $2
 }
 
-function downloadWithWget() {
+downloadWithWget() {
 	wget --no-check-certificate $1 -O $2
 }
 
-function download() {
+download() {
 	if [ $HAS_CURL -eq 0 ]; then
 		downloadWithCurl $1 $2
 	elif [ $HAS_WGET -eq 0 ]; then
@@ -44,11 +44,11 @@ cd ~
 
 # Backup the existing profile files
 echo "Backing up existing profile files..."
-[ -f ~/.profile ] && mv ~/.profile ~/.profile.bak
-[ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak
-[ -f ~/.bash_aliases ] && mv ~/.bash_aliases ~/.bash_aliases.bak
-[ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bak
-[ -f ~/.minttyrc ] && mv ~/.minttyrc ~/.minttyrc.bak
+[ -f ~/.profile ] && cp ~/.profile ~/.profile.bak
+[ -f ~/.bashrc ] && cp ~/.bashrc ~/.bashrc.bak
+[ -f ~/.bash_aliases ] && cp ~/.bash_aliases ~/.bash_aliases.bak
+[ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc.bak
+[ -f ~/.minttyrc ] && cp ~/.minttyrc ~/.minttyrc.bak
 
 # Get the operating system. Possible values:
 #  * GNU/Linux = Linux
