@@ -47,7 +47,15 @@ xterm*|rxvt*)
 esac
 
 # Custom functions
-function up() { for i in $(seq 1 $1); do cd .. ; done }
+function up() { 
+	COUNT=1
+	if [ -n "$1" ]; then
+		COUNT=$1
+	fi
+	for ((i = 1; i <= $COUNT; i++)); do 
+		cd ..
+	done
+}
 
 # MacOS specific settings
 if [ $OPSYS == "Darwin" ]; then
