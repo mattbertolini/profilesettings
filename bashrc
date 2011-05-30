@@ -26,26 +26,6 @@ EDITOR=vim
 SVN_EDITOR=vim
 LESS=-M
 
-# Set up the prompt. Terminals that support color will have color prompts.
-case "$TERM" in
-xterm-color|xterm-256color|screen-color|screen-256color)
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='\u@\h:\w\$ '
-    ;;
-esac
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    # Do nothing
-    ;;
-esac
-
 # Custom functions
 function up() { 
 	COUNT=1
@@ -70,6 +50,26 @@ if [ $OPSYS == "Cygwin" ]; then
     unset TMP
     unset TEMP
 fi
+
+# Set up the prompt. Terminals that support color will have color prompts.
+case "$TERM" in
+xterm-color|xterm-256color|screen-color|screen-256color)
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    ;;
+*)
+    PS1='\u@\h:\w\$ '
+    ;;
+esac
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    # Do nothing
+    ;;
+esac
 
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then
