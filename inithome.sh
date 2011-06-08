@@ -64,16 +64,16 @@ download https://github.com/MaliciousMonkey/profilesettings/raw/master/bashrc .b
 download https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_aliases .bash_aliases
 download https://github.com/MaliciousMonkey/profilesettings/raw/master/vimrc .vimrc
 
-#Download platform specific files
+# Only download the local file if it does not already exist.
+if [ ! -f ~/.bash_local ]; then
+	download https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_local .bash_local
+fi
+
+# Download platform specific files
 
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
 	download https://github.com/MaliciousMonkey/profilesettings/raw/master/minttyrc .minttyrc
-fi
-
-# Only download the local file if it does not already exist.
-if [ ! -f ~/.bash_local ]; then
-	download https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_local .bash_local
 fi
 
 # Finally, source the profile files
