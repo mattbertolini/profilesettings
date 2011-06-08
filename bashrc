@@ -75,3 +75,8 @@ esac
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# Source the local file if it exists
+if [ -f ~/.bash_local ]; then
+	. ~/.bash_local
+fi
