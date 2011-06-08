@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
 fi
 
 downloadWithCurl() {
-	curl --insecure $1 -o $2
+	curl --insecure --location $1 -o $2
 }
 
 downloadWithWget() {
@@ -69,6 +69,11 @@ download https://github.com/MaliciousMonkey/profilesettings/raw/master/vimrc .vi
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
 	download https://github.com/MaliciousMonkey/profilesettings/raw/master/minttyrc .minttyrc
+fi
+
+# Only download the local file if it does not already exist.
+if [ ! -f ~/.bash_local ]; then
+	download https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_local .bash_local
 fi
 
 # Finally, source the profile files
