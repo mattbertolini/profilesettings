@@ -11,4 +11,4 @@ set shiftwidth=4
 "set expandtab " Use spaces instead of tabs
 set tabstop=4
 set autoindent
-set pastetoggle=<F11>
+set pastetoggle=<F12>
