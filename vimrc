@@ -12,3 +12,7 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 set pastetoggle=<F12>
+
+if filereadable($HOME . "/.vim_local")
+	source $HOME/.vim_local
+endif
