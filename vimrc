@@ -1,6 +1,7 @@
 set nocompatible
 "set t_Co=256
 set background=dark
+set title
 "colorscheme candycode 
 "colorscheme darkblack
 syntax on 
