@@ -39,7 +39,18 @@ function up() {
 
 # MacOS specific settings
 if [ $OPSYS == "Darwin" ]; then
-    export LSCOLORS='Exfxcxdxbxegedabagacad'
+    DIR=Ex
+    SYM_LINK=Gx
+    SOCKET=Fx
+    PIPE=dx
+    EXE=Cx
+    BLOCK_SP=Dx
+    CHAR_SP=Dx
+    EXE_SUID=hb
+    EXE_GUID=ad
+    DIR_STICKY=Ex
+    DIR_WO_STICKY=Ex
+    export LSCOLORS="$DIR$SYM_LINK$SOCKET$PIPE$EXE$BLOCK_SP$CHAR_SP$EXE_SUID$EXE_GUID$DIR_STICKY$DIR_WO_STICKY"
     
     # Fink init script. Check to see if it exists and source it if it does.
     [ -r /sw/bin/init.sh ] && . /sw/bin/init.sh
