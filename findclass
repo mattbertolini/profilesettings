@@ -1,0 +1,51 @@
+#! /bin/sh
+
+# Find Java Class In Jar Script
+# Written By Matt Bertolini
+
+printUsage() {
+cat << EOF
+Usage: $(basename $0) [OPTIONS] <path-to-jars> <classname>
+
+OPTIONS:
+  -h    Prints this help screen.
+
+All option flags must come before the required arguments.
+EOF
+}
+
+# Parse the arguments
+while getopts "h" OPTION; do
+    case $OPTION in
+    h)
+        printUsage
+        exit 1
+        ;;
+    ?)
+        printUsage
+        exit 1
+        ;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+if [ "$#" != 2 ]; then
+	echo "Error. Incorrect or missing parameters."
+	printUsage
+	exit 1
+fi
+
+# Get the operating system. Possible values:
+#  * GNU/Linux = Linux
+#  * Cygwin = Windows Cygwin prompts
+#  * Darwin = MacOS
+OPSYS=$(uname -o 2>/dev/null || uname -s)
+
+if [[ $OPSYS == "Cygwin" ]]; then
+	find "$1" -name "*.jar" -exec sh -c 'jar -tf $(cygpath -aw "{}") | grep -H --label {} '$2'' \;
+else
+	find "$1" -name "*.jar" -exec sh -c 'jar -tf {} | grep -H --label {} '$2'' \;
+fi
+
+exit 0
+
