@@ -4,7 +4,7 @@
 # Get the operating system. Possible values:
 #  * GNU/Linux = Linux
 #  * Cygwin = Windows Cygwin prompts
-#  * Darwin = MacOPSYS
+#  * Darwin = MacOS
 OPSYS=$(uname -o 2>/dev/null || uname -s)
 
 # Aliases for Linux only
@@ -17,9 +17,10 @@ if [ $OPSYS == "Cygwin" ]; then
     alias ls='ls --color=auto'
 fi
 
-# Aliases for MacOPSYS only
+# Aliases for MacOS only
 if [ $OPSYS == "Darwin" ]; then
     alias ls='ls -G'
+    alias finder='open -a finder'
 fi
 
 # Aliases that all operating systems can use
