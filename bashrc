@@ -58,7 +58,7 @@ if [ $OPSYS == "Darwin" ]; then
 
     # Function for using quicklook via the command line
     function ql {
-        qlmanage -p "$@" >& /dev/null
+        qlmanage -p "$@" >& /dev/null; echo
     }
     
     # Fink init script. Check to see if it exists and source it if it does.
@@ -93,6 +93,11 @@ xterm*|rxvt*)
     # Do nothing
     ;;
 esac
+
+# Set the PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+    PATH=~/bin:"${PATH}"
+fi
 
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then

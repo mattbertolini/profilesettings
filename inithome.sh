@@ -49,6 +49,7 @@ echo "Backing up existing profile files..."
 [ -f ~/.bash_aliases ] && cp ~/.bash_aliases ~/.bash_aliases.bak
 [ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc.bak
 [ -f ~/.minttyrc ] && cp ~/.minttyrc ~/.minttyrc.bak
+[ -d ~/.vim/ ] && cp -r ~/.vim/ ~/.vimbak/
 
 # Get the operating system. Possible values:
 #  * GNU/Linux = Linux
@@ -63,6 +64,8 @@ download https://github.com/MaliciousMonkey/profilesettings/raw/master/profile .
 download https://github.com/MaliciousMonkey/profilesettings/raw/master/bashrc .bashrc
 download https://github.com/MaliciousMonkey/profilesettings/raw/master/bash_aliases .bash_aliases
 download https://github.com/MaliciousMonkey/profilesettings/raw/master/vimrc .vimrc
+download http://vimcolorschemetest.googlecode.com/svn/colors/vibrantink.vim .vim/colors/vibrantink.vim
+download https://raw.github.com/MaliciousMonkey/profilesettings/master/bin/findclass bin/findclass
 
 # Only download the local file if it does not already exist.
 if [ ! -f ~/.bash_local ]; then
