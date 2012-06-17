@@ -49,6 +49,7 @@ echo "Backing up existing profile files..."
 [ -f ~/.bash_aliases ] && cp ~/.bash_aliases ~/.bash_aliases.bak
 [ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc.bak
 [ -f ~/.minttyrc ] && cp ~/.minttyrc ~/.minttyrc.bak
+[ -d ~/bin/ ] && cp -r ~/bin/ ~/binbak/
 [ -d ~/.vim/ ] && cp -r ~/.vim/ ~/.vimbak/
 
 # Get the operating system. Possible values:
