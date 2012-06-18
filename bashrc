@@ -94,11 +94,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Set the PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
-fi
-
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
