@@ -58,6 +58,14 @@ echo "Backing up existing profile files..."
 #  * Darwin = MacOS
 OPSYS=$(uname -o 2>/dev/null || uname -s)
 
+# Create folders if needed
+if [ ! -d ~/bin ]; then
+    mkdir bin
+fi
+if [ ! -d ~/.vim/colors ]; then
+    mkdir -p .vim/colors
+fi
+
 # Download files common to all platforms. Please note that I am not checking 
 # the SSL certificate because of the way Github and wget handle wildcard certificates.
 echo "Downloading universal profile files..."
