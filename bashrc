@@ -28,6 +28,10 @@ LESS=-M
 
 # Custom functions
 function up() { 
+	if [[ -n "$1" && !("$1" =~ ^[0-9]+$) ]]; then
+        echo "Error: Argument not a number."
+        return
+    fi
 	COUNT=1
 	CD_STR=''
 	if [ -n "$1" ]; then
