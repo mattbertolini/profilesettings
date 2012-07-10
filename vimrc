@@ -1,19 +1,35 @@
-set nocompatible
+set nocompatible                                                                                
+set encoding=UTF-8
 "set t_Co=256
 set background=dark
 set title
 "colorscheme candycode 
 "colorscheme darkblack
-syntax on 
-"set number " Line numbering on
+syntax on  
+set number " Line numbering on
 
 " Tabs and Indentation
 set shiftwidth=4
-"set expandtab " Use spaces instead of tabs
 set tabstop=4
+set softtabstop=4
+set expandtab " Use spaces instead of tabs
 set autoindent
-set pastetoggle=<F12>
 
+set showmode
+set showcmd
+set wildmenu
+set wildmode=list:longest
+set hidden
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set statusline=%f%m%r%h%w\ %=\ %y\ [%l,%v]\ [%{(&fenc==\"\"?&enc:&fenc)}]\ [%{&ff}]
+set laststatus=2
+set paste
+set pastetoggle=<F6>
+
+" Source vim settings local to this machine only.
 if filereadable($HOME . "/.vim_local")
-	source $HOME/.vim_local
+    source $HOME/.vim_local
 endif
