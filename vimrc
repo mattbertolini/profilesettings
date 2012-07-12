@@ -15,6 +15,13 @@ set softtabstop=4
 set expandtab " Use spaces instead of tabs
 set autoindent
 
+set ignorecase
+set smartcase
+
+set incsearch
+set showmatch
+set hlsearch
+
 set showmode
 set showcmd
 set wildmenu
