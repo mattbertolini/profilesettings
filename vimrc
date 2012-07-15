@@ -1,4 +1,9 @@
-set nocompatible                                                                                
+# Start pathogen
+filetype off
+call pathogen#infect()
+filetype plugin indent on
+
+set nocompatible
 set encoding=UTF-8
 "set t_Co=256
 set background=dark
@@ -31,7 +36,7 @@ set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-set statusline=%f%m%r%h%w\ %=\ %y\ [%l,%v]\ [%{(&fenc==\"\"?&enc:&fenc)}]\ [%{&ff}]
+set statusline=%f%m%r%h%w\ %=\ [%l:%v]\ %y\ [%{(&fenc==\"\"?&enc:&fenc)}]\ [%{&ff}]
 set laststatus=2
 set paste
 set pastetoggle=<F6>

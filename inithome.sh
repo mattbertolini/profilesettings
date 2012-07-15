@@ -63,7 +63,13 @@ if [ ! -d ~/bin ]; then
     mkdir bin
 fi
 if [ ! -d ~/.vim/colors ]; then
-    mkdir -p .vim/colors
+    mkdir -p ~/.vim/colors
+fi
+if [ ! -d ~/.vim/autoload ]; then
+    mkdir -p ~/.vim/autoload
+fi
+if [ ! -d ~/.vim/bundle ]; then
+    mkdir -p ~/.vim/bundle
 fi
 
 # Download files common to all platforms. Please note that I am not checking 
@@ -73,8 +79,11 @@ download https://raw.github.com/MaliciousMonkey/profilesettings/master/profile .
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bashrc .bashrc
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bash_aliases .bash_aliases
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/vimrc .vimrc
-download http://vimcolorschemetest.googlecode.com/svn/colors/vibrantink.vim .vim/colors/vibrantink.vim
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bin/findclass bin/findclass
+
+# Download third-party files
+download http://vimcolorschemetest.googlecode.com/svn/colors/vibrantink.vim .vim/colors/vibrantink.vim
+download https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 
 # Only download the local files if they don't already exist.
 if [ ! -f ~/.bash_local ]; then
@@ -91,8 +100,5 @@ if [ $OPSYS == "Cygwin" ]; then
 	download https://raw.github.com/MaliciousMonkey/profilesettings/master/minttyrc .minttyrc
 fi
 
-# Finally, source the profile files
-echo "Sourcing profile..."
-source ~/.profile
 echo "Universal profile loaded successfully."
 exit 0
