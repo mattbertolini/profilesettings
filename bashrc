@@ -24,7 +24,7 @@ shopt -s checkwinsize
 # Set up environment variables
 EDITOR=vim
 SVN_EDITOR=vim
-LESS=-M
+LESS='-M -i'; export LESS
 
 # Custom functions
 function up() { 
