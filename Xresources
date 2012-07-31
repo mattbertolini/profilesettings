@@ -1,0 +1,22 @@
+! X Resource Settings                                                                                                             
+
+! xterm
+xterm*background: black
+xterm*foreground: white
+xterm*geometry: 80x24
+xterm*faceName: Terminus:normal:pixelsize=13
+xterm*dynamicColors: true
+xterm*utf8: 2
+
+! xft (font) settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+! xclock
+xclock*update: 1
+xclock*analog: false
+xclock*foreground: white
+xclock*background: black

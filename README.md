@@ -6,6 +6,7 @@ To install/update:
 wget --no-check-certificate https://raw.github.com/MaliciousMonkey/profilesettings/master/inithome.sh; \
 chmod ugo+x inithome.sh; \
 ./inithome.sh
+source ~/.profile
 ```
 
 If there is no wget command:
@@ -14,4 +15,5 @@ If there is no wget command:
 curl --remote-name --insecure https://raw.github.com/MaliciousMonkey/profilesettings/master/inithome.sh; \
 chmod ugo+x inithome.sh; \
 ./inithome.sh
+source ~/.profile
 ```

@@ -49,6 +49,7 @@ echo "Backing up existing profile files..."
 [ -f ~/.bash_aliases ] && cp ~/.bash_aliases ~/.bash_aliases.bak
 [ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc.bak
 [ -f ~/.minttyrc ] && cp ~/.minttyrc ~/.minttyrc.bak
+[ -f ~/.Xresources ] && cp ~/.Xresources ~/.Xresources.bak
 [ -d ~/bin/ ] && cp -r ~/bin/ ~/binbak/
 [ -d ~/.vim/ ] && cp -r ~/.vim/ ~/.vimbak/
 
@@ -79,6 +80,7 @@ download https://raw.github.com/MaliciousMonkey/profilesettings/master/profile .
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bashrc .bashrc
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bash_aliases .bash_aliases
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/vimrc .vimrc
+download https://raw.github.com/MaliciousMonkey/profilesettings/master/Xresources .Xresources
 download https://raw.github.com/MaliciousMonkey/profilesettings/master/bin/findclass bin/findclass
 
 # Download third-party files
