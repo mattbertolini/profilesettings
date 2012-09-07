@@ -25,6 +25,7 @@ shopt -s checkwinsize
 EDITOR=vim
 SVN_EDITOR=vim
 LESS='-M -i'; export LESS
+GREP_OPTIONS='--color=always'; export GREP_OPTIONS
 
 # Custom functions
 function up() { 
