@@ -25,7 +25,6 @@ shopt -s checkwinsize
 EDITOR=vim
 SVN_EDITOR=vim
 LESS='-M -i'; export LESS
-GREP_OPTIONS='--color=always'; export GREP_OPTIONS
 
 # Custom functions
 function up() { 
@@ -83,6 +82,9 @@ xterm-color|xterm-256color|screen-color|screen-256color)
     PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     # Alternate light red and yellow prompt. Copy to bash_local if you want to use.
     #PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+
+    # Highlight grep matches
+    GREP_OPTIONS='--color=always'; export GREP_OPTIONS
     ;;
 *)
     PS1='\u@\h:\w\$ '
@@ -92,7 +94,10 @@ esac
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    # Checking to see if the PROMPT_COMMAND variable is read-only.
+    if [ "$(unset PROMPT_COMMAND 2> /dev/null)" == "0" ]; then
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    fi
     ;;
 *)
     # Do nothing
