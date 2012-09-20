@@ -94,10 +94,7 @@ esac
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    # Checking to see if the PROMPT_COMMAND variable is read-only.
-    if [ "$(unset PROMPT_COMMAND 2> /dev/null)" == "0" ]; then
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    fi
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
     ;;
 *)
     # Do nothing
