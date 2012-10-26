@@ -25,6 +25,8 @@ shopt -s checkwinsize
 EDITOR=vim
 SVN_EDITOR=vim
 LESS='-M -i'; export LESS
+# Highlight grep matches
+GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 
 # Custom functions
 function up() { 
@@ -82,9 +84,6 @@ xterm-color|xterm-256color|screen-color|screen-256color)
     PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     # Alternate light red and yellow prompt. Copy to bash_local if you want to use.
     #PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
-
-    # Highlight grep matches
-    GREP_OPTIONS='--color=always'; export GREP_OPTIONS
     ;;
 *)
     PS1='\u@\h:\w\$ '
