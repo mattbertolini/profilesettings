@@ -76,12 +76,12 @@ fi
 # Download files common to all platforms. Please note that I am not checking 
 # the SSL certificate because of the way Github and wget handle wildcard certificates.
 echo "Downloading universal profile files..."
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/profile .profile
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/bashrc .bashrc
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/bash_aliases .bash_aliases
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/vimrc .vimrc
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/Xresources .Xresources
-download https://raw.github.com/MaliciousMonkey/profilesettings/master/bin/findclass bin/findclass
+download https://raw.github.com/mattbertolini/profilesettings/master/profile .profile
+download https://raw.github.com/mattbertolini/profilesettings/master/bashrc .bashrc
+download https://raw.github.com/mattbertolini/profilesettings/master/bash_aliases .bash_aliases
+download https://raw.github.com/mattbertolini/profilesettings/master/vimrc .vimrc
+download https://raw.github.com/mattbertolini/profilesettings/master/Xresources .Xresources
+download https://raw.github.com/mattbertolini/profilesettings/master/bin/findclass bin/findclass
 
 # Download third-party files
 download http://vimcolorschemetest.googlecode.com/svn/colors/vibrantink.vim .vim/colors/vibrantink.vim
@@ -89,17 +89,17 @@ download https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim 
 
 # Only download the local files if they don't already exist.
 if [ ! -f ~/.bash_local ]; then
-	download https://raw.github.com/MaliciousMonkey/profilesettings/master/bash_local .bash_local
+	download https://raw.github.com/mattbertolini/profilesettings/master/bash_local .bash_local
 fi
 if [ ! -f ~/.vim_local ]; then
-    download https://raw.github.com/MaliciousMonkey/profilesettings/master/vim_local .vim_local
+    download https://raw.github.com/mattbertolini/profilesettings/master/vim_local .vim_local
 fi
 
 # Download platform specific files
 
 if [ $OPSYS == "Cygwin" ]; then
 	echo "Downloading Cygwin specific profile files..."
-	download https://raw.github.com/MaliciousMonkey/profilesettings/master/minttyrc .minttyrc
+	download https://raw.github.com/mattbertolini/profilesettings/master/minttyrc .minttyrc
 fi
 
 echo "Universal profile loaded successfully."
