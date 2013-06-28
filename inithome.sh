@@ -80,6 +80,7 @@ download https://raw.github.com/mattbertolini/profilesettings/master/profile .pr
 download https://raw.github.com/mattbertolini/profilesettings/master/bashrc .bashrc
 download https://raw.github.com/mattbertolini/profilesettings/master/bash_aliases .bash_aliases
 download https://raw.github.com/mattbertolini/profilesettings/master/vimrc .vimrc
+download https://raw.github.com/mattbertolini/profilesettings/master/tmux.conf .tmux.conf
 download https://raw.github.com/mattbertolini/profilesettings/master/Xresources .Xresources
 download https://raw.github.com/mattbertolini/profilesettings/master/bin/findclass bin/findclass
 
