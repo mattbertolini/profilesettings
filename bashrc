@@ -66,6 +66,11 @@ if [ $OPSYS == "Darwin" ]; then
     function ql {
         qlmanage -p "$@" >& /dev/null; echo
     }
+
+    # If homebrew is installed and the bash completion package is present, source it.
+    if [ -r /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
     
     # Fink init script. Check to see if it exists and source it if it does.
     [ -r /sw/bin/init.sh ] && . /sw/bin/init.sh
