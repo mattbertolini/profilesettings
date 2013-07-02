@@ -30,7 +30,7 @@ GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 
 # Custom functions
 function up() { 
-	if [[ -n "$1" && !("$1" =~ ^[0-9]+$) ]]; then
+	if [[ -n "$1" && $1 != *[0-9]* ]]; then
         echo "Error: Argument not a number."
         return
     fi
