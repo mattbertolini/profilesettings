@@ -15,12 +15,14 @@ fi
 #Aliases for Cygwin terminals only
 if [ $OPSYS == "Cygwin" ]; then
     alias ls='ls --color=auto'
+    alias finder='explorer'
 fi
 
 # Aliases for MacOS only
 if [ $OPSYS == "Darwin" ]; then
     alias ls='ls -G'
     alias finder='open -a finder'
+    alias explorer='finder'
 fi
 
 # Aliases that all operating systems can use

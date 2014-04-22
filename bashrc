@@ -40,7 +40,7 @@ function up() {
 		COUNT=$1
 	fi
 	for ((i = 1; i <= $COUNT; i++)); do
-		# Making a string so we change the direction all in one shot.
+		# Making a string so we change the directory all in one shot.
 		CD_STR=$CD_STR"../"
 	done
 	cd $CD_STR
