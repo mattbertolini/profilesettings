@@ -24,7 +24,7 @@ shopt -s checkwinsize
 # Set up environment variables
 EDITOR=vim
 SVN_EDITOR=vim
-LESS='-M -i'; export LESS
+LESS="-M -I -R"; export LESS
 # Highlight grep matches
 GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 
