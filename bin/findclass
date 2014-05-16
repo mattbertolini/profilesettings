@@ -41,7 +41,7 @@ fi
 #  * Darwin = MacOS
 OPSYS=$(uname -o 2>/dev/null || uname -s)
 
-if [[ $OPSYS == "Cygwin" ]]; then
+if [ $OPSYS == "Cygwin" ]; then
 	find "$1" -name "*.jar" -exec sh -c 'jar -tf $(cygpath -aw "{}") | grep -H --label {} '$2'' \;
 else
 	find "$1" -name "*.jar" -exec sh -c 'jar -tf {} | grep -H --label {} '$2'' \;
