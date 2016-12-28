@@ -85,7 +85,7 @@ download https://raw.github.com/mattbertolini/profilesettings/master/Xresources 
 download https://raw.github.com/mattbertolini/profilesettings/master/bin/findclass bin/findclass
 
 # Download third-party files
-download http://vimcolorschemetest.googlecode.com/svn/colors/vibrantink.vim .vim/colors/vibrantink.vim
+download https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/vibrantink.vim .vim/colors/vibrantink.vim
 download https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 
 # Only download the local files if they don't already exist.
