@@ -68,7 +68,7 @@ if [ $OPSYS == "Darwin" ]; then
     }
 
     # If homebrew is installed and the bash completion package is present, source it.
-    if [ -r /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    if [ -x /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
     
