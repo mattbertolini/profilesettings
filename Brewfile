@@ -2,7 +2,7 @@
 brew "bat"
 brew "btop"
 brew "cloc"
-brew "coreutils"
+brew "coreutils" if OS.mac?
 brew "dos2unix"
 brew "fish"
 brew "git"
