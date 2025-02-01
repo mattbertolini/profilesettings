@@ -26,31 +26,8 @@ LESS="-M -I -R"; export LESS
 # Highlight grep matches
 GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 
-# Custom functions
-function up() { 
-	if [[ -n "$1" && $1 != *[0-9]* ]]; then
-        echo "Error: Argument not a number."
-        return
-    fi
-	COUNT=1
-	CD_STR=''
-	if [ -n "$1" ]; then
-		COUNT=$1
-	fi
-	for ((i = 1; i <= $COUNT; i++)); do
-		# Making a string so we change the directory all in one shot.
-		CD_STR=$CD_STR"../"
-	done
-	cd $CD_STR
-}
-
 # MacOS specific settings
 if [ $OPSYS == "Darwin" ]; then
-    # Function for using quicklook via the command line
-    function ql {
-        qlmanage -p "$@" >& /dev/null; echo
-    }
-
     # If homebrew is installed and the bash completion package is present, source it.
     if [ -x /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
@@ -63,9 +40,16 @@ if [ $OPSYS == "Cygwin" ]; then
     unset TEMP
 fi
 
-# Source files in conf.d directory
 BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
+
+# Source files in conf.d directory
 for file in "${BASH_PROFILE_DIR}/conf.d/"*.bash; do
+    [[ -f "${file}" ]] || continue
+    source "${file}"
+done
+
+# Source files in functions directory
+for file in "${BASH_PROFILE_DIR}/functions/"*.bash; do
     [[ -f "${file}" ]] || continue
     source "${file}"
 done
