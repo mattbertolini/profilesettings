@@ -7,6 +7,7 @@ brew "cloc"
 brew "coreutils" if OS.mac?
 brew "dos2unix"
 brew "fish"
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "htop"
