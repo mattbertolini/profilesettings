@@ -1,4 +1,6 @@
 # Homebrew packages to install
+brew "bash-completion" if OS.mac?
+brew "bash-completion@2" if OS.linux
 brew "bat"
 brew "btop"
 brew "cloc"
