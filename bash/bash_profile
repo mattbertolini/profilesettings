@@ -63,16 +63,6 @@ if [ $OPSYS == "Cygwin" ]; then
     unset TEMP
 fi
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    # Do nothing
-    ;;
-esac
-
 # Source files in conf.d directory
 BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
 for file in "${BASH_PROFILE_DIR}/conf.d/"*.bash; do
