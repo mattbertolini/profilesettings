@@ -1,41 +1,17 @@
 # Bash Shell Profile
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
-# Get the operating system. Possible values:
-#  * GNU/Linux = Linux
-#  * Cygwin = Windows Cygwin prompts
-#  * Darwin = MacOS
-OPSYS=$(uname -o 2>/dev/null || uname -s)
-
-# History settings. Don't put duplicate lines and ignore successive entries in history list.
-export HISTCONTROL=ignoredups
-export HISTCONTROL=ignoreboth
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
 # Set up environment variables
 EDITOR=vim
 LESS="-M -I -R"; export LESS
 # Highlight grep matches
 GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 
-# MacOS specific settings
-if [ $OPSYS == "Darwin" ]; then
-    # If homebrew is installed and the bash completion package is present, source it.
-    if [ -x /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-fi
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-if [ $OPSYS == "Cygwin" ]; then
-    # In Windows, these variables are already defined so I we should unset them in Cygwin.
-    unset TMP
-    unset TEMP
-fi
+# History settings. Don't put duplicate lines and commands that begin with a space (e.g. ignoredupes and ignorespace).
+export HISTCONTROL=ignoreboth
 
 BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
 
