@@ -1,0 +1,15 @@
+# Zsh Shell Profile
+
+ZSH_PROFILE_DIR="$(cd "$(dirname "$(realpath "${(%):-%x}")")" && pwd)"
+
+# Source files in conf.d directory
+for file in "${ZSH_PROFILE_DIR}/conf.d/"*.zsh; do
+    [[ -f "${file}" ]] || continue
+    source "${file}"
+done
+
+# Source files in functions directory
+for file in "${ZSH_PROFILE_DIR}/functions/"*.zsh; do
+    [[ -f "${file}" ]] || continue
+    source "${file}"
+done
