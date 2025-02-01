@@ -1,4 +1,4 @@
-# Universal profile bashrc file
+# Universal bash profile file
 # Written by Matt Bertolini
 
 # If not running interactively, don't do anything
@@ -48,20 +48,6 @@ function up() {
 
 # MacOS specific settings
 if [ $OPSYS == "Darwin" ]; then
-    # Build custom LS Colors
-    DIR=Ex
-    SYM_LINK=Gx
-    SOCKET=Fx
-    PIPE=dx
-    EXE=Cx
-    BLOCK_SP=Dx
-    CHAR_SP=Dx
-    EXE_SUID=hb
-    EXE_GUID=ad
-    DIR_STICKY=Ex
-    DIR_WO_STICKY=Ex
-    export LSCOLORS="$DIR$SYM_LINK$SOCKET$PIPE$EXE$BLOCK_SP$CHAR_SP$EXE_SUID$EXE_GUID$DIR_STICKY$DIR_WO_STICKY"
-
     # Function for using quicklook via the command line
     function ql {
         qlmanage -p "$@" >& /dev/null; echo
@@ -105,28 +91,14 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Excellent bookmarks functions from
-# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-export MARKPATH=$HOME/.marks
-function jump {
-    cd -P "$MARKPATH/$1" 2> /dev/null || echo "No such mark: $1"
-}
-function mark {
-    mkdir -p "$MARKPATH"; ln -s $(pwd) "$MARKPATH/$1"
-}
-function unmark {
-    rm -i "$MARKPATH/$1"
-}
-function marks {
-    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
-}
-
 # Source the aliases file if it exists
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
 
-# Source the local file if it exists
-if [ -f ~/.bash_local ]; then
-	. ~/.bash_local
-fi
+# Source files in conf.d directory
+BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
+for file in "${BASH_PROFILE_DIR}/conf.d/"*.bash; do
+    [[ -f "${file}" ]] || continue
+    source "${file}"
+done

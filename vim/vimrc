@@ -1,7 +1,7 @@
 " Start pathogen
-filetype off
-call pathogen#infect()
-filetype plugin indent on
+"filetype off
+"call pathogen#infect()
+"filetype plugin indent on
 
 set nocompatible
 set encoding=UTF-8
@@ -42,6 +42,6 @@ set paste
 set pastetoggle=<F6>
 
 " Source vim settings local to this machine only.
-if filereadable($HOME . "/.vim_local")
-    source $HOME/.vim_local
-endif
+"if filereadable($HOME . "/.vim_local")
+""    source $HOME/.vim_local
+"endif
