@@ -13,6 +13,11 @@ shopt -s checkwinsize
 # History settings. Don't put duplicate lines and commands that begin with a space (e.g. ignoredupes and ignorespace).
 export HISTCONTROL=ignoreboth
 
+# Set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ]; then
+    PATH=~/bin:"${PATH}"
+fi
+
 BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
 
 # Source files in conf.d directory
