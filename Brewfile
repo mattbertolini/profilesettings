@@ -11,4 +11,3 @@ brew "htop"
 brew "loc"
 brew "the_silver_searcher"
 brew "wget"
-
