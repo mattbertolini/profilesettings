@@ -1,5 +1,4 @@
-# Universal bash profile file
-# Written by Matt Bertolini
+# Bash Shell Profile
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -23,7 +22,6 @@ shopt -s checkwinsize
 
 # Set up environment variables
 EDITOR=vim
-SVN_EDITOR=vim
 LESS="-M -I -R"; export LESS
 # Highlight grep matches
 GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
@@ -57,9 +55,6 @@ if [ $OPSYS == "Darwin" ]; then
     if [ -x /usr/local/bin/brew ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
-    
-    # Fink init script. Check to see if it exists and source it if it does.
-    [ -r /sw/bin/init.sh ] && . /sw/bin/init.sh
 fi
 
 if [ $OPSYS == "Cygwin" ]; then
@@ -90,11 +85,6 @@ xterm*|rxvt*)
     # Do nothing
     ;;
 esac
-
-# Source the aliases file if it exists
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
 
 # Source files in conf.d directory
 BASH_PROFILE_DIR="$(cd "$(dirname $(realpath "${BASH_SOURCE[0]}"))" && pwd)"
