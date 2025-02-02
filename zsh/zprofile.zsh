@@ -15,16 +15,19 @@ if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
 fi
 
+# shellcheck disable=SC2296
 ZSH_PROFILE_DIR="$(cd "$(dirname "$(realpath "${(%):-%x}")")" && pwd)"
 
 # Source files in conf.d directory
 for file in "${ZSH_PROFILE_DIR}/conf.d/"*.zsh; do
     [[ -f "${file}" ]] || continue
+    # shellcheck source=conf.d/bash-prompt.zsh
     source "${file}"
 done
 
 # Source files in functions directory
 for file in "${ZSH_PROFILE_DIR}/functions/"*.zsh; do
     [[ -f "${file}" ]] || continue
+    # shellcheck source=functions/up.zsh
     source "${file}"
 done
