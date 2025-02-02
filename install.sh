@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo
+set -eu
 
 # xcode-select --install
 # xcode-select -p
@@ -32,3 +32,4 @@ done
 ./bash/install.sh
 ./zsh/install.sh
 ./fish/install.sh
+./ghostty/install.sh
