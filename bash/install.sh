@@ -2,7 +2,7 @@
 
 set -euo
 
-REPO_ROOT="../"
+REPO_ROOT="$(dirname $0)/../"
 
 . "${REPO_ROOT}/scripts/core.sh"
 
