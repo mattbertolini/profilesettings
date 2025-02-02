@@ -32,7 +32,7 @@ set showcmd
 set wildmenu
 set wildmode=list:longest
 set hidden
-set cursorl ine
+set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -41,7 +41,7 @@ set laststatus=2
 set paste
 set pastetoggle=<F6>
 
-# Source files in conf.d directory
+" Source files in conf.d directory
 let vimrc_dir = fnamemodify(resolve($MYVIMRC), ':h')
 let confd_dir = vimrc_dir . '/conf.d'
 for file in split(glob(confd_dir . '/*.vim'), '\n')
