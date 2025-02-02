@@ -33,7 +33,7 @@ OS=$(uname -o 2>/dev/null || uname -s)
 if [ "$OS" = "Darwin" ]; then
     echo "Detected MacOS"
 
-    if [ "$(which brew)" ]; then
+    if [ ! "$(which brew)" ]; then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew bundle install
