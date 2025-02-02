@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo
+set -eu
 
 copyFile() {
     _copyFile_source="$1"
