@@ -33,3 +33,4 @@ done
 ./zsh/install.sh
 ./fish/install.sh
 ./ghostty/install.sh
+./vim/install.sh
