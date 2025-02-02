@@ -21,7 +21,7 @@ copyFile "${REPO_ROOT}/fish/functions/up.fish" "${FISH_FUNCTIONS_DIR}/up.fish"
 
 # conf.d directory
 mkdir -p "${FISH_CONF_D_DIR}"
-copyFile "${REPO_ROOT}/fish/conf.d/colors.fish" "${FISH_CONF_D_DIR}/fish/colors.fish"
+copyFile "${REPO_ROOT}/fish/conf.d/colors.fish" "${FISH_CONF_D_DIR}/colors.fish"
 if test "$(which brew)"; then
     copyFile "${REPO_ROOT}/fish/conf.d/homebrew.fish" "${FISH_CONF_D_DIR}/homebrew.fish"
 fi
