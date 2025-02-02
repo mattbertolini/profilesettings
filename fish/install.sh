@@ -23,6 +23,7 @@ copyFile "${REPO_ROOT}/fish/functions/up.fish" "${FISH_FUNCTIONS_DIR}/up.fish"
 mkdir -p "${FISH_CONF_D_DIR}"
 copyFile "${REPO_ROOT}/fish/conf.d/colors.fish" "${FISH_CONF_D_DIR}/colors.fish"
 if test "$(which brew)"; then
+    echo "Found Homebrew. Installing config"
     copyFile "${REPO_ROOT}/fish/conf.d/homebrew.fish" "${FISH_CONF_D_DIR}/homebrew.fish"
 fi
 copyFile "${REPO_ROOT}/fish/conf.d/lesspipe.fish" "${FISH_CONF_D_DIR}/lesspipe.fish"

@@ -29,6 +29,17 @@ while getopts "h" OPTION; do
     esac
 done
 
+OS=$(uname -o 2>/dev/null || uname -s)
+if [ "$OS" = "Darwin" ]; then
+    echo "Detected MacOS"
+
+    if [ "$(which brew)" ]; then
+        echo "Installing homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew bundle install
+    fi
+fi
+
 ./bash/install.sh
 ./zsh/install.sh
 ./fish/install.sh
