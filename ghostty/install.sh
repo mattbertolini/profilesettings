@@ -8,6 +8,8 @@ REPO_ROOT="$(cd "$(dirname "$0")" && pwd -P)/.."
 
 GHOSTTY_CONFIG_DIR="${HOME}/.config/ghostty"
 
-# Main profile files
+echo "Installing Ghostty config"
+
+# Main config
 mkdir -p "${GHOSTTY_CONFIG_DIR}"
 copyFile "${REPO_ROOT}/ghostty/config" "${GHOSTTY_CONFIG_DIR}/config"

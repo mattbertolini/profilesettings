@@ -9,7 +9,9 @@ REPO_ROOT="$(cd "$(dirname "$0")" && pwd -P)/.."
 NAMESPACE="mrb"
 VIM_CONFIG_DIR="${HOME}/.config/${NAMESPACE}/vim"
 
-# Main profile files
+echo "Installing Vim config"
+
+# Main config
 mkdir -p "${VIM_CONFIG_DIR}"
 copyFile "${REPO_ROOT}/vim/vimrc" "${VIM_CONFIG_DIR}/vimrc"
 

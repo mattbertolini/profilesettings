@@ -11,6 +11,8 @@ BASH_CONFIG_DIR="${HOME}/.config/${NAMESPACE}/bash"
 BASH_CONF_D_DIR="${BASH_CONFIG_DIR}/conf.d"
 BASH_FUNCTIONS_DIR="${BASH_CONFIG_DIR}/functions"
 
+echo "Installing Bash shell config"
+
 # Main profile files
 mkdir -p "${BASH_CONFIG_DIR}"
 copyFile "${REPO_ROOT}/bash/bash_profile.bash" "${BASH_CONFIG_DIR}/bash_profile.bash"

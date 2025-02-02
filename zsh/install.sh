@@ -11,6 +11,8 @@ ZSH_CONFIG_DIR="${HOME}/.config/${NAMESPACE}/zsh"
 ZSH_CONF_D_DIR="${ZSH_CONFIG_DIR}/conf.d"
 ZSH_FUNCTIONS_DIR="${ZSH_CONFIG_DIR}/functions"
 
+echo "Installing Zsh shell config"
+
 # Main profile files
 mkdir -p "${ZSH_CONFIG_DIR}"
 copyFile "${REPO_ROOT}/zsh/zprofile.zsh" "${ZSH_CONFIG_DIR}/zprofile.zsh"

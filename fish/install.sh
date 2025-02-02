@@ -10,6 +10,8 @@ FISH_CONFIG_DIR="${HOME}/.config/fish"
 FISH_CONF_D_DIR="${FISH_CONFIG_DIR}/conf.d"
 FISH_FUNCTIONS_DIR="${FISH_CONFIG_DIR}/functions"
 
+echo "Installing Fish shell config"
+
 # Main profile files
 mkdir -p "${FISH_CONFIG_DIR}"
 copyFile "${REPO_ROOT}/fish/config.fish" "${FISH_CONFIG_DIR}/config.fish"
