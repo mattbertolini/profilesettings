@@ -25,7 +25,7 @@ copyFile "${REPO_ROOT}/zsh/functions/up.zsh" "${ZSH_FUNCTIONS_DIR}/up.zsh"
 mkdir -p "${ZSH_CONF_D_DIR}"
 copyFile "${REPO_ROOT}/zsh/conf.d/zsh-prompt.zsh" "${ZSH_CONF_D_DIR}/zsh-prompt.zsh"
 if test "$(which brew)"; then
-    copyFile "bash/conf.d/homebrew.zsh" "${ZSH_CONF_D_DIR}/homebrew.zsh"
+    copyFile "${REPO_ROOT}/zsh/conf.d/homebrew.zsh" "${ZSH_CONF_D_DIR}/homebrew.zsh"
 fi
 copyFile "${REPO_ROOT}/zsh/conf.d/lesspipe.zsh" "${ZSH_CONF_D_DIR}/lesspipe.zsh"
 copyFile "${REPO_ROOT}/zsh/conf.d/lscolors.zsh" "${ZSH_CONF_D_DIR}/lscolors.zsh"

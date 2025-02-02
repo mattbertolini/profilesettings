@@ -26,7 +26,7 @@ mkdir -p "${BASH_CONF_D_DIR}"
 copyFile "${REPO_ROOT}/bash/conf.d/bash-completion.bash" "${BASH_CONF_D_DIR}/bash-completion.bash"
 copyFile "${REPO_ROOT}/bash/conf.d/bash-prompt.bash" "${BASH_CONF_D_DIR}/bash-prompt.bash"
 if test "$(which brew)"; then
-    copyFile "bash/conf.d/homebrew.bash" "${BASH_CONF_D_DIR}/homebrew.bash"
+    copyFile "${REPO_ROOT}/bash/conf.d/homebrew.bash" "${BASH_CONF_D_DIR}/homebrew.bash"
 fi
 copyFile "${REPO_ROOT}/bash/conf.d/lesspipe.bash" "${BASH_CONF_D_DIR}/lesspipe.bash"
 copyFile "${REPO_ROOT}/bash/conf.d/lscolors.bash" "${BASH_CONF_D_DIR}/lscolors.bash"
