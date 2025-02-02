@@ -1,0 +1,16 @@
+# Old settings not in use right now
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Get the operating system. Possible values:
+#  * GNU/Linux = Linux
+#  * Cygwin = Windows Cygwin prompts
+#  * Darwin = MacOS
+OPSYS=$(uname -o 2>/dev/null || uname -s)
+
+if [ $OPSYS == "Cygwin" ]; then
+    # In Windows, these variables are already defined so I we should unset them in Cygwin.
+    unset TMP
+    unset TEMP
+fi
