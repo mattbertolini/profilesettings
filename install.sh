@@ -40,6 +40,7 @@ if [ "$OS" = "Darwin" ]; then
 #    fi
 fi
 
+./bin/install.sh
 ./bash/install.sh
 ./zsh/install.sh
 ./fish/install.sh
