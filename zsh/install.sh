@@ -30,7 +30,6 @@ fi
 copyFile "${REPO_ROOT}/zsh/conf.d/lesspipe.zsh" "${ZSH_CONF_D_DIR}/lesspipe.zsh"
 copyFile "${REPO_ROOT}/zsh/conf.d/lscolors.zsh" "${ZSH_CONF_D_DIR}/lscolors.zsh"
 copyFile "${REPO_ROOT}/zsh/conf.d/marks.zsh" "${ZSH_CONF_D_DIR}/marks.zsh"
-copyFile "${REPO_ROOT}/zsh/conf.d/prompt-command.zsh" "${ZSH_CONF_D_DIR}/prompt-command.zsh"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/zsh/conf.d/sdkman.zsh" "${BASH_CONF_D_DIR}/sdkman.zsh"
 
