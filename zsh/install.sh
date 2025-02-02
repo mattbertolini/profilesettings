@@ -33,5 +33,5 @@ copyFile "${REPO_ROOT}/zsh/conf.d/marks.zsh" "${ZSH_CONF_D_DIR}/marks.zsh"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/zsh/conf.d/sdkman.zsh" "${BASH_CONF_D_DIR}/sdkman.zsh"
 
-createSymlink "${HOME}/.config/mrb/zsh/zprofile.zsh" "${HOME}/.zprofile"
-createSymlink "${HOME}/.config/mrb/zsh/zshrc.zsh" "${HOME}/.zshrc"
+createSymlink "${ZSH_CONFIG_DIR}/zprofile.zsh" "${HOME}/.zprofile"
+createSymlink "${ZSH_CONFIG_DIR}/zshrc.zsh" "${HOME}/.zshrc"

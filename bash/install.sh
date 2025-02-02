@@ -35,5 +35,5 @@ copyFile "${REPO_ROOT}/bash/conf.d/prompt-command.bash" "${BASH_CONF_D_DIR}/prom
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/bash/conf.d/sdkman.bash" "${BASH_CONF_D_DIR}/sdkman.bash"
 
-createSymlink "${HOME}/.config/mrb/bash/bash_profile.bash" "${HOME}/.bash_profile"
-createSymlink "${HOME}/.config/mrb/bash/bashrc.bash" "${HOME}/.bashrc"
+createSymlink "${BASH_CONFIG_DIR}/bash_profile.bash" "${HOME}/.bash_profile"
+createSymlink "${BASH_CONFIG_DIR}/bashrc.bash" "${HOME}/.bashrc"
