@@ -29,4 +29,5 @@ while getopts "h" OPTION; do
     esac
 done
 
-exec ./bash/install.sh
+./bash/install.sh
+./zsh/install.sh
