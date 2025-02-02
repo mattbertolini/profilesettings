@@ -2,7 +2,7 @@
 
 set -euo
 
-REPO_ROOT="$(cd "$(dirname "$0")" && pwd -P)/$(basename "$0")/../"
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd -P)/.."
 
 . "${REPO_ROOT}/scripts/core.sh"
 
@@ -13,8 +13,8 @@ BASH_FUNCTIONS_DIR="${BASH_CONFIG_DIR}/functions"
 
 # Main profile files
 mkdir -p "${BASH_CONFIG_DIR}"
-copyFile "${REPO_ROOT}/bash/bash_profile" "${BASH_CONFIG_DIR}/bash_profile"
-copyFile "bash/bashrc" "${BASH_CONFIG_DIR}/bashrc"
+copyFile "${REPO_ROOT}/bash/bash_profile.bash" "${BASH_CONFIG_DIR}/bash_profile.bash"
+copyFile "${REPO_ROOT}/bash/bashrc.bash" "${BASH_CONFIG_DIR}/bashrc.bash"
 
 # functions directory
 mkdir -p "${BASH_FUNCTIONS_DIR}"
