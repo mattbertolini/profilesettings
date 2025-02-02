@@ -31,3 +31,4 @@ done
 
 ./bash/install.sh
 ./zsh/install.sh
+./fish/install.sh
