@@ -32,7 +32,7 @@ set showcmd
 set wildmenu
 set wildmode=list:longest
 set hidden
-set cursorline
+set cursorl ine
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -41,7 +41,9 @@ set laststatus=2
 set paste
 set pastetoggle=<F6>
 
-" Source vim settings local to this machine only.
-"if filereadable($HOME . "/.vim_local")
-""    source $HOME/.vim_local
-"endif
+# Source files in conf.d directory
+let vimrc_dir = fnamemodify(resolve($MYVIMRC), ':h')
+let confd_dir = vimrc_dir . '/conf.d'
+for file in split(glob(confd_dir . '/*.vim'), '\n')
+    execute 'source' . file
+endfor
