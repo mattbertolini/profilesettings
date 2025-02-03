@@ -1,4 +1,4 @@
-function up --description "Change multiple directories"
+function up --description "Go up multiple directories"
     if set -q argv[1]; and not string match -qr "[0-9]+" "$argv[1]"
         echo "Error: argument is not a number"
         return 1
