@@ -11,4 +11,4 @@ EXE_GUID=ad
 DIR_STICKY=Ex
 DIR_WO_STICKY=Ex
 export LSCOLORS="$DIR$SYM_LINK$SOCKET$PIPE$EXE$BLOCK_SP$CHAR_SP$EXE_SUID$EXE_GUID$DIR_STICKY$DIR_WO_STICKY"
-alias ls='ls --color=auto'
+alias ls='ls -G --color=auto'
