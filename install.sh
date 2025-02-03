@@ -11,16 +11,30 @@ Usage: $(basename "$0") [OPTIONS]
 
 OPTIONS:
   -h    Prints this help screen.
+  -n    Set the config namespace in .config dir
+  -o    Overwrite the existing config files
 
 All option flags must come before the required arguments.
 EOF
 }
 
-while getopts "h" OPTION; do
+# Defaults
+namespace="mrb"
+overwrite="false"
+
+while getopts "hn:o" OPTION; do
     case $OPTION in
     h)
         usage
         exit 1
+        ;;
+    n)
+        # Namespace
+        namespace="$OPTARG"
+        ;;
+    o)
+        # Overwrite
+        overwrite="true"
         ;;
     ?)
         usage
@@ -28,6 +42,9 @@ while getopts "h" OPTION; do
         ;;
     esac
 done
+
+export namespace
+export overwrite
 
 OS=$(uname -o 2>/dev/null || uname -s)
 if [ "$OS" = "Darwin" ]; then
@@ -46,3 +63,4 @@ fi
 ./fish/install.sh
 ./ghostty/install.sh
 ./vim/install.sh
+./git/install.sh

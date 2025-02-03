@@ -5,7 +5,8 @@ set -eu
 copyFile() {
     _copyFile_source="$1"
     _copyFile_target="$2"
-    if [ ! -f "${_copyFile_target}" ]; then
+    _copyFile_overwrite="${3:-false}"
+    if [ ! -f "${_copyFile_target}" ] || [ "${_copyFile_overwrite}" = "true" ]; then
         cp "${_copyFile_source}" "${_copyFile_target}"
     fi
 }
