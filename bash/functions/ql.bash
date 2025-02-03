@@ -1,3 +1,3 @@
 function ql {
-    qlmanage -p "$@" >& /dev/null; echo
+    qlmanage -p "$@" >& /dev/null
 }
