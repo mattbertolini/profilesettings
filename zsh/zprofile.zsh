@@ -1,5 +1,9 @@
 # Zsh Shell Profile
 
+# Enable Zsh completion system
+autoload -Uz compinit
+compinit
+
 # Set up environment variables
 EDITOR=vim; export EDITOR
 LESS="-M -I -R"; export LESS

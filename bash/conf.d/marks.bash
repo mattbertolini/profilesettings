@@ -13,3 +13,17 @@ function unmark {
 function marks {
     ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
+
+__bookmark_completions() {
+    local current
+    local bookmarks
+
+    current="${COMP_WORDS[COMP_CWORD]}"
+    bookmarks=$(find "$MARKPATH" -type l -exec basename {} \;)
+
+    COMPREPLY=($(compgen -W "$bookmarks" -- "$current"))
+}
+
+# Add completion to the jump and unmark commands
+complete -F __bookmark_completions jump
+complete -F __bookmark_completions unmark

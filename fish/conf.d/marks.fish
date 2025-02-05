@@ -26,3 +26,7 @@ end
 function marks --description "List all bookmarks"
     ls -l $MARKPATH | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 end
+
+# Add completion to the jump and unmark commands
+complete -c jump -x -a "(find $MARKPATH -type l -exec basename {} \;)"
+complete -c unmark -x -a "(find $MARKPATH -type l -exec basename {} \;)"
