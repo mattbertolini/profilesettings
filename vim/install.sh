@@ -14,6 +14,6 @@ echo "Installing Vim config"
 
 # Main config
 mkdir -p "${VIM_CONFIG_DIR}"
-copyFile "${REPO_ROOT}/vim/vimrc" "${VIM_CONFIG_DIR}/vimrc" "${OVERWRITE}"
+copyFile "${REPO_ROOT}/vim/vimrc.vim" "${VIM_CONFIG_DIR}/vimrc.vim" "${OVERWRITE}"
 
-createSymlink "${VIM_CONFIG_DIR}/vimrc" "${HOME}/.vimrc"
+createSymlink "${VIM_CONFIG_DIR}/vimrc.vim" "${HOME}/.vimrc"
