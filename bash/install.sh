@@ -27,7 +27,6 @@ copyFile "${REPO_ROOT}/bash/functions/up.bash" "${BASH_FUNCTIONS_DIR}/up.bash" "
 # conf.d directory
 mkdir -p "${BASH_CONF_D_DIR}"
 copyFile "${REPO_ROOT}/bash/conf.d/bash-completion.bash" "${BASH_CONF_D_DIR}/bash-completion.bash" "${OVERWRITE}"
-copyFile "${REPO_ROOT}/bash/conf.d/bash-prompt.bash" "${BASH_CONF_D_DIR}/bash-prompt.bash" "${OVERWRITE}"
 if test "$(which brew)"; then
     echo "Found Homebrew. Installing config"
     copyFile "${REPO_ROOT}/bash/conf.d/homebrew.bash" "${BASH_CONF_D_DIR}/homebrew.bash" "${OVERWRITE}"
@@ -35,7 +34,7 @@ fi
 copyFile "${REPO_ROOT}/bash/conf.d/lesspipe.bash" "${BASH_CONF_D_DIR}/lesspipe.bash" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/bash/conf.d/lscolors.bash" "${BASH_CONF_D_DIR}/lscolors.bash" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/bash/conf.d/marks.bash" "${BASH_CONF_D_DIR}/marks.bash" "${OVERWRITE}"
-copyFile "${REPO_ROOT}/bash/conf.d/prompt-command.bash" "${BASH_CONF_D_DIR}/prompt-command.bash" "${OVERWRITE}"
+copyFile "${REPO_ROOT}/bash/conf.d/prompt.bash" "${BASH_CONF_D_DIR}/prompt.bash" "${OVERWRITE}"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/bash/conf.d/sdkman.bash" "${BASH_CONF_D_DIR}/sdkman.bash" "${OVERWRITE}"
 
