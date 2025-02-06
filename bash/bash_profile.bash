@@ -1,5 +1,21 @@
 # Bash Shell Profile
 
+BASH_PROFILE_DIR="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)"
+
+# Source files in conf.d directory. This search is ordered (e.g. 1-config.bash, 2-config.bash, another-config.bash)
+for file in $(find "${BASH_PROFILE_DIR}/conf.d" -name "*.bash" -type f | sort -V); do
+    [[ -f "${file}" ]] || continue
+    # shellcheck source=conf.d/bash-prompt.bash
+    source "${file}"
+done
+
+# Source files in functions directory
+for file in "${BASH_PROFILE_DIR}/functions/"*.bash; do
+    [[ -f "${file}" ]] || continue
+    # shellcheck source=functions/up.bash
+    source "${file}"
+done
+
 # Set up environment variables
 EDITOR=vim; export EDITOR
 LESS="-M -I -R"; export LESS
@@ -17,19 +33,3 @@ export HISTCONTROL=ignoreboth
 if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
 fi
-
-BASH_PROFILE_DIR="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)"
-
-# Source files in conf.d directory. This search is ordered (e.g. 1-config.bash, 2-config.bash, another-config.bash)
-for file in $(find "${BASH_PROFILE_DIR}/conf.d" -name "*.bash" -type f | sort -V); do
-    [[ -f "${file}" ]] || continue
-    # shellcheck source=conf.d/bash-prompt.bash
-    source "${file}"
-done
-
-# Source files in functions directory
-for file in "${BASH_PROFILE_DIR}/functions/"*.bash; do
-    [[ -f "${file}" ]] || continue
-    # shellcheck source=functions/up.bash
-    source "${file}"
-done

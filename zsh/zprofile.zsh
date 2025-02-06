@@ -4,21 +4,6 @@
 autoload -Uz compinit
 compinit
 
-# Set up environment variables
-EDITOR=vim; export EDITOR
-LESS="-M -I -R"; export LESS
-# Highlight grep matches
-GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
-
-# History settings. Don't put duplicate lines and commands that begin with a space
-setopt HIST_IGNORE_SPACE  # Ignore commands that start with a space
-setopt HIST_IGNORE_DUPS   # Ignore duplicate commands in history
-
-# Set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ]; then
-    PATH=~/bin:"${PATH}"
-fi
-
 # shellcheck disable=SC2296
 ZSH_PROFILE_DIR="$(cd "$(dirname "$(realpath "${(%):-%x}")")" && pwd)"
 
@@ -35,3 +20,18 @@ for file in "${ZSH_PROFILE_DIR}/functions/"*.zsh; do
     # shellcheck source=functions/up.zsh
     source "${file}"
 done
+
+# Set up environment variables
+EDITOR=vim; export EDITOR
+LESS="-M -I -R"; export LESS
+# Highlight grep matches
+GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
+
+# History settings. Don't put duplicate lines and commands that begin with a space
+setopt HIST_IGNORE_SPACE  # Ignore commands that start with a space
+setopt HIST_IGNORE_DUPS   # Ignore duplicate commands in history
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ]; then
+    PATH=~/bin:"${PATH}"
+fi
