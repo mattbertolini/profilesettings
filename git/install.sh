@@ -19,3 +19,11 @@ OS=$(uname -o 2>/dev/null || uname -s)
 if [ "$OS" = "Darwin" ]; then
     git config --global credential.helper osxkeychain
 fi
+
+# Add delta as git diff tool if present
+if test "$(which delta)"; then
+    git config --global core.pager delta
+    git config --global interactive.diffFilter 'delta --color-only'
+    git config --global delta.navigate true
+    git config --global merge.conflictStyle zdiff3
+fi
