@@ -1,7 +1,7 @@
-typeset red='%F{red}'
-typeset reset='%f'
-typeset bold='%B'
-typeset bold_stop='%b'
+typeset -r red='%F{red}'
+typeset -r reset='%f'
+typeset -r bold='%B'
+typeset -r bold_stop='%b'
 
 __setPrompt() {
     local exit_code=$?

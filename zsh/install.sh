@@ -16,7 +16,6 @@ echo "Installing Zsh shell config"
 
 # Main profile files
 mkdir -p "${ZSH_CONFIG_DIR}"
-copyFile "${REPO_ROOT}/zsh/zprofile.zsh" "${ZSH_CONFIG_DIR}/zprofile.zsh" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/zsh/zshrc.zsh" "${ZSH_CONFIG_DIR}/zshrc.zsh" "${OVERWRITE}"
 
 # functions directory
@@ -37,5 +36,4 @@ copyFile "${REPO_ROOT}/zsh/conf.d/prompt.zsh" "${ZSH_CONF_D_DIR}/prompt.zsh" "${
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/zsh/conf.d/sdkman.zsh" "${ZSH_CONF_D_DIR}/sdkman.zsh" "${OVERWRITE}"
 
-createSymlink "${ZSH_CONFIG_DIR}/zprofile.zsh" "${HOME}/.zprofile"
 createSymlink "${ZSH_CONFIG_DIR}/zshrc.zsh" "${HOME}/.zshrc"
