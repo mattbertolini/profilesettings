@@ -1,3 +1,4 @@
+typeset -r green='%F{10}'
 typeset -r red='%F{red}'
 typeset -r reset='%f'
 typeset -r bold='%B'
@@ -14,7 +15,7 @@ __setPrompt() {
     # Set up the prompt. Terminals that support color will have color prompts.
     case "$TERM" in
     xterm-color|xterm-256color|screen-color|screen-256color|xterm-ghostty)
-        PROMPT="%{$(tput setaf 10)%}%n%{$(tput setaf 214)%}@%{$(tput setaf 214)%}%m %{$(tput setaf 33)%}%1~ %{$(tput sgr0)%}${exit_code_prompt}%# "
+        PROMPT="${green}%n%F{220}@%F{214}%m %F{33}%1~ %{%f%}${exit_code_prompt}%# "
         ;;
     *)
         # Do nothing right now
