@@ -12,7 +12,7 @@ alias finder="open -a finder"
 
 # Set PATH so it includes user's private bin if it exists
 if test -d ~/bin
-    fish_add_path -p ~/bin
+    fish_add_path -m -p ~/bin
 end
 
 if status is-interactive
