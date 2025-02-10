@@ -16,3 +16,7 @@ brew "loc"
 brew "the_silver_searcher"
 brew "vim"
 brew "wget"
+
+# gng - Gradle wrapper helper
+# https://github.com/gdubw/gng
+tap "gdubw/gng"
