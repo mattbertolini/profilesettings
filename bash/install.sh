@@ -21,6 +21,7 @@ copyFile "${REPO_ROOT}/bash/bashrc.bash" "${BASH_CONFIG_DIR}/bashrc.bash" "${OVE
 
 # functions directory
 mkdir -p "${BASH_FUNCTIONS_DIR}"
+copyFile "${REPO_ROOT}/bash/functions/__shrink_path.bash" "${BASH_FUNCTIONS_DIR}/__shrink_path.bash" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/bash/functions/ll.bash" "${BASH_FUNCTIONS_DIR}/ll.bash" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/bash/functions/ql.bash" "${BASH_FUNCTIONS_DIR}/ql.bash" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/bash/functions/up.bash" "${BASH_FUNCTIONS_DIR}/up.bash" "${OVERWRITE}"
