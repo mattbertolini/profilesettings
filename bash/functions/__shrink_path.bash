@@ -1,5 +1,6 @@
 __shrink_path() {
     local original_path="$1"
+    local retain_count="${2:-1}" # Default to 1 if not provided
 
     # If the path is "~" or "/", return it as-is
     if [[ "$original_path" == "~" || "$original_path" == "/" ]]; then
@@ -21,6 +22,9 @@ __shrink_path() {
         is_home_path=true
     fi
 
+    # Calculate how many directories can be shortened
+    local shorten_limit=$((${#parts[@]} - retain_count))
+
     # Process each part
     for i in "${!parts[@]}"; do
         if [[ "${parts[$i]}" == "" ]]; then
@@ -28,9 +32,13 @@ __shrink_path() {
             if [[ $i -eq 0 && $is_home_path == false ]]; then
                 shortened_path+="/"
             fi
-        elif [[ $i -eq $((${#parts[@]} - 1)) ]]; then
-            # Current (last) directory stays full
+        elif [[ $i -ge $shorten_limit ]]; then
+            # Retain the full name for the last `retain_count` directories
             shortened_path+="${parts[$i]}"
+            # Add slashes between directories except for the last one
+            if [[ $i -lt $((${#parts[@]} - 1)) ]]; then
+                shortened_path+="/"
+            fi
         else
             # Take the first letter of intermediate directories
             shortened_path+="${parts[$i]:0:1}/"

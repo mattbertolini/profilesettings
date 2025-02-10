@@ -1,66 +1,75 @@
-# Load the __shrink_path function from the script file
-# Make sure to replace '__shrink_path.sh' with the actual file where the function is defined
+# Testing __shrink_path function
+
 load ../../../bash/functions/__shrink_path.bash
 
-# Test: Root directory stays unchanged
-@test "Root directory is not shortened" {
+@test "Root directory (/) is unchanged" {
     run __shrink_path "/"
     [ "$status" -eq 0 ]
     [ "$output" = "/" ]
 }
 
-# Test: Home directory (~) stays unchanged
-@test "Home directory (~) is not shortened" {
+@test "Home directory (~) is unchanged" {
     run __shrink_path "~"
     [ "$status" -eq 0 ]
     [ "$output" = "~" ]
 }
 
-# Test: ~/dev/projects/testing -> ~/d/p/testing
-@test "Shortening ~/dev/projects/testing" {
-    run __shrink_path "~/dev/projects/testing"
+@test "Shortening path with home directory (~/test/dir/subdir/another/testing)" {
+    run __shrink_path "~/test/dir/subdir/another/testing"
     [ "$status" -eq 0 ]
-    [ "$output" = "~/d/p/testing" ]
+    [ "$output" = "~/t/d/s/a/testing" ]
 }
 
-# Test: /usr/local/bin -> /u/l/bin
-@test "Shortening /usr/local/bin" {
-    run __shrink_path "/usr/local/bin"
+@test "Shortening path from root (/opt/test/dir/subdir/testing)" {
+    run __shrink_path "/opt/test/dir/subdir/testing"
     [ "$status" -eq 0 ]
-    [ "$output" = "/u/l/bin" ]
+    [ "$output" = "/o/t/d/s/testing" ]
 }
 
-# Test: ~/Sync/dev/tools/ant -> ~/S/d/t/ant
-@test "Shortening ~/Sync/dev/tools/ant" {
-    run __shrink_path "~/Sync/dev/tools/ant"
-    [ "$status" -eq 0 ]
-    [ "$output" = "~/S/d/t/ant" ]
-}
-
-# Test: No trailing slash in result
 @test "Path with trailing slash doesn't add trailing slash in shortened form" {
-    run __shrink_path "~/Sync/dev/tools/ant/"
+    run __shrink_path "~/test/dir/subdir/"
     [ "$status" -eq 0 ]
-    [ "$output" = "~/S/d/t/ant" ]
+    [ "$output" = "~/t/d/subdir" ]
 }
 
-# Test: Combination of root and last directory
-@test "Shortening /etc/nginx includes root and last directory" {
-    run __shrink_path "/etc/nginx"
+@test "Don't shorten single directory from home directory (~/test)" {
+    run __shrink_path "~/test"
     [ "$status" -eq 0 ]
-    [ "$output" = "/e/nginx" ]
+    [ "$output" = "~/test" ]
 }
 
-# Test: Shorten deeply nested paths
-@test "Shortening deeply nested path /var/lib/mysql/database" {
-    run __shrink_path "/var/lib/mysql/database"
+@test "Don't shorten single directory from root (/opt)" {
+    run __shrink_path "/opt"
     [ "$status" -eq 0 ]
-    [ "$output" = "/v/l/m/database" ]
+    [ "$output" = "/opt" ]
 }
 
-# Test: Case sensitivity (Sync stays as S)
 @test "Preserves case sensitivity properly" {
-    run __shrink_path "~/Sync/Dev/Tools/ANT"
+    run __shrink_path "~/test/Dir/subdir/Testing"
     [ "$status" -eq 0 ]
-    [ "$output" = "~/S/D/T/ANT" ]
+    [ "$output" = "~/t/D/s/Testing" ]
+}
+
+@test "Shortening path with home directory and keeping more than one directory full" {
+    run __shrink_path "~/test/dir/subdir/another/testing" 2
+    [ "$status" -eq 0 ]
+    [ "$output" = "~/t/d/s/another/testing" ]
+}
+
+@test "Shortening path from root and keeping more than one directory full" {
+    run __shrink_path "/opt/test/dir/subdir/testing" 2
+    [ "$status" -eq 0 ]
+    [ "$output" = "/o/t/d/subdir/testing" ]
+}
+
+@test "Large retain number keeps the full path (with home directory)" {
+    run __shrink_path "~/test/dir/subdir/another/testing" 999
+    [ "$status" -eq 0 ]
+    [ "$output" = "~/test/dir/subdir/another/testing" ]
+}
+
+@test "Large retain number keeps the full path (with root directory)" {
+    run __shrink_path "/opt/test/dir/subdir/testing" 999
+    [ "$status" -eq 0 ]
+    [ "$output" = "/opt/test/dir/subdir/testing" ]
 }
