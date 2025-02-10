@@ -1,3 +1,3 @@
 function ll {
-    ls -l "$@"
+    ls -G --color=auto -l "$@"
 }
