@@ -20,6 +20,7 @@ copyFile "${REPO_ROOT}/zsh/zshrc.zsh" "${ZSH_CONFIG_DIR}/zshrc.zsh" "${OVERWRITE
 
 # functions directory
 mkdir -p "${ZSH_FUNCTIONS_DIR}"
+copyFile "${REPO_ROOT}/zsh/functions/ll.zsh" "${ZSH_FUNCTIONS_DIR}/ll.zsh" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/zsh/functions/ql.zsh" "${ZSH_FUNCTIONS_DIR}/ql.zsh" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/zsh/functions/up.zsh" "${ZSH_FUNCTIONS_DIR}/up.zsh" "${OVERWRITE}"
 
