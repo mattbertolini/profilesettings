@@ -4,6 +4,9 @@ typeset -r reset='%f'
 typeset -r bold='%B'
 typeset -r bold_stop='%b'
 
+# Load vcs_info for git branch info
+autoload -Uz vcs_info
+
 __setPrompt() {
     local exit_code=$?
     local exit_code_prompt=''
@@ -12,10 +15,16 @@ __setPrompt() {
         exit_code_prompt="${bold}${red}[${exit_code}]${bold_stop}${reset}"
     fi
 
+    # Populate the git branch info
+    vcs_info
+    zstyle ':vcs_info:git*' formats "(%b)"
+    local git_prompt="${vcs_info_msg_0_}"
+
+
     # Set up the prompt. Terminals that support color will have color prompts.
     case "$TERM" in
     xterm-color|xterm-256color|screen-color|screen-256color|xterm-ghostty)
-        PROMPT="${green}%n%F{183}@%F{214}%m %F{33}%1~ %{%f%}${exit_code_prompt}%# "
+        PROMPT="${green}%n%F{183}@%F{214}%m %F{33}%1~ %{%f%}${git_prompt}${exit_code_prompt}%# "
         ;;
     *)
         # Do nothing right now
