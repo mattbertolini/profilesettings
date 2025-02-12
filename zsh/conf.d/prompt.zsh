@@ -6,6 +6,10 @@ typeset -r bold_stop='%b'
 
 # Load vcs_info for git branch info
 autoload -Uz vcs_info
+zstyle ':vcs_info:git*' formats "(%b)"
+precmd() {
+    vcs_info
+}
 
 __setPrompt() {
     local exit_code=$?
@@ -16,8 +20,6 @@ __setPrompt() {
     fi
 
     # Populate the git branch info
-    vcs_info
-    zstyle ':vcs_info:git*' formats "(%b)"
     local git_prompt="${vcs_info_msg_0_}"
 
 
