@@ -4,7 +4,7 @@ root = true
 end_of_line = lf
 charset = utf-8
 
-[*.{bash,zsh,fish,vim,sh}]
+[*.{bash,bats,zsh,fish,vim,sh}]
 indent_style = space
 indent_size = 4
 insert_final_newline = true
