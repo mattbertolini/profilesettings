@@ -3,7 +3,8 @@ readonly reset='\[\e[0m\]'
 readonly bold='\[\e[1m\]'
 
 __setPs1() {
-    local exit_code=$?
+    local exit_codes=("${PIPESTATUS[@]}")
+    local exit_code="$(IFS='|'; echo "${exit_codes[*]}")"
     local exit_code_prompt=''
 
     if [ $exit_code != 0 ]; then

@@ -12,7 +12,8 @@ precmd() {
 }
 
 __setPrompt() {
-    local exit_code=$?
+    local exit_codes=("${pipestatus[@]}")
+    local exit_code="$(IFS='|'; echo "${exit_codes[*]}")"
     local exit_code_prompt=''
 
     if [ $exit_code != 0 ]; then
