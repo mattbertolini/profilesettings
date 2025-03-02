@@ -16,7 +16,7 @@ __setPrompt() {
     local exit_code="$(IFS='|'; echo "${exit_codes[*]}")"
     local exit_code_prompt=''
 
-    if [ $exit_code != 0 ]; then
+    if [ "${exit_codes[-1]}" -ne 0 ]; then
         exit_code_prompt="${bold}${red}[${exit_code}]${bold_stop}${reset}"
     fi
 
