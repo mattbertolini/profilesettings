@@ -12,6 +12,8 @@ ZSH_CONFIG_DIR="${HOME}/.config/${NAMESPACE}/zsh"
 ZSH_CONF_D_DIR="${ZSH_CONFIG_DIR}/conf.d"
 ZSH_FUNCTIONS_DIR="${ZSH_CONFIG_DIR}/functions"
 
+ZSH_LOCAL_SHARE_DIR="${HOME}/.local/share/${NAMESPACE}/zsh"
+
 echo "Installing Zsh shell config"
 
 # Main profile files
@@ -34,7 +36,15 @@ copyFile "${REPO_ROOT}/zsh/conf.d/lesspipe.zsh" "${ZSH_CONF_D_DIR}/lesspipe.zsh"
 copyFile "${REPO_ROOT}/zsh/conf.d/lscolors.zsh" "${ZSH_CONF_D_DIR}/lscolors.zsh" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/zsh/conf.d/marks.zsh" "${ZSH_CONF_D_DIR}/marks.zsh" "${OVERWRITE}"
 copyFile "${REPO_ROOT}/zsh/conf.d/prompt.zsh" "${ZSH_CONF_D_DIR}/prompt.zsh" "${OVERWRITE}"
+copyFile "${REPO_ROOT}/zsh/conf.d/zsh-autosuggestions.zsh" "${ZSH_CONF_D_DIR}/zsh-autosuggestions.zsh" "${OVERWRITE}"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/zsh/conf.d/sdkman.zsh" "${ZSH_CONF_D_DIR}/sdkman.zsh" "${OVERWRITE}"
 
+# .local/share (zsh_history, etc)
+mkdir -p "${ZSH_LOCAL_SHARE_DIR}"
+moveFileIfExists "${HOME}/.zsh_history" "${ZSH_LOCAL_SHARE_DIR}/zsh_history"
+touch "${ZSH_LOCAL_SHARE_DIR}/zsh_history"
+
 createSymlink "${ZSH_CONFIG_DIR}/zshrc.zsh" "${HOME}/.zshrc"
+createSymlink "${ZSH_LOCAL_SHARE_DIR}/zsh_history" "${HOME}/.zsh_history"
+

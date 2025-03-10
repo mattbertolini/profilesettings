@@ -18,6 +18,7 @@ brew "ripgrep"
 brew "the_silver_searcher"
 brew "vim"
 brew "wget"
+brew "zsh-autosuggestions"
 
 # gng - Gradle wrapper helper
 # https://github.com/gdubw/gng

@@ -12,6 +12,8 @@ BASH_CONFIG_DIR="${HOME}/.config/${NAMESPACE}/bash"
 BASH_CONF_D_DIR="${BASH_CONFIG_DIR}/conf.d"
 BASH_FUNCTIONS_DIR="${BASH_CONFIG_DIR}/functions"
 
+BASH_LOCAL_SHARE_DIR="${HOME}/.local/share/${NAMESPACE}/bash"
+
 echo "Installing Bash shell config"
 
 # Main profile files
@@ -40,5 +42,12 @@ copyFile "${REPO_ROOT}/bash/conf.d/prompt.bash" "${BASH_CONF_D_DIR}/prompt.bash"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/bash/conf.d/sdkman.bash" "${BASH_CONF_D_DIR}/sdkman.bash" "${OVERWRITE}"
 
+# .local/share (bash_history, etc)
+mkdir -p "${BASH_LOCAL_SHARE_DIR}"
+moveFileIfExists "${HOME}/.bash_history" "${BASH_LOCAL_SHARE_DIR}/bash_history"
+touch "${BASH_LOCAL_SHARE_DIR}/bash_history"
+
 createSymlink "${BASH_CONFIG_DIR}/bash_profile.bash" "${HOME}/.bash_profile"
 createSymlink "${BASH_CONFIG_DIR}/bashrc.bash" "${HOME}/.bashrc"
+createSymlink "${BASH_LOCAL_SHARE_DIR}/bash_history" "${HOME}/.bash_history"
+

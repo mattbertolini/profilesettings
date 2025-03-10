@@ -7,4 +7,4 @@ if test ! "$(which bats)"; then
     exit 1
 fi
 
-bats -r ./test
+bats -r . 
