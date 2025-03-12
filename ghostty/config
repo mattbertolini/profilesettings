@@ -1,3 +1,4 @@
 macos-titlebar-style = native
 # Remove ligatures
 font-feature = -calt
+theme = Monokai Pro
