@@ -28,7 +28,7 @@ __setPrompt() {
     # Set up the prompt. Terminals that support color will have color prompts.
     case "$TERM" in
     xterm-color|xterm-256color|screen-color|screen-256color|xterm-ghostty)
-        PROMPT="${green}%n@%m %F{blue}%1~ %{%f%}${git_prompt}${exit_code_prompt}%# "
+        PROMPT="${green}%n@%m ${bold}%F{blue}%1~${bold_stop} %{%f%}${git_prompt}${exit_code_prompt}%# "
         ;;
     *)
         # Do nothing right now
