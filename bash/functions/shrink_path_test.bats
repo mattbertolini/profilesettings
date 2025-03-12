@@ -1,6 +1,6 @@
 # Testing __shrink_path function
 
-load ../../../bash/functions/__shrink_path.bash
+load ./__shrink_path.bash
 
 @test "Root directory (/) is unchanged" {
     run __shrink_path "/"

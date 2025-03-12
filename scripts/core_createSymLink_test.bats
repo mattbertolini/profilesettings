@@ -1,4 +1,4 @@
-load ../../scripts/core.sh
+load ./core.sh
 
 setup() {
   # Create input directory
@@ -16,7 +16,7 @@ teardown() {
 @test "createSymlink creates a symlink correctly" {
   local target_file="${BATS_TEST_TMPDIR}/input/test.txt"
   local symlink_path="${BATS_TEST_TMPDIR}/output_symlink"
-  
+
   createSymlink "${target_file}" "${symlink_path}"
 
   # Assert that the symlink exists

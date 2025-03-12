@@ -1,4 +1,4 @@
-load ../../scripts/logger.sh
+load ./logger.sh
 
 setup() {
   # Stubs or mock variables can go here if needed
