@@ -42,8 +42,6 @@ copyFile "${REPO_ROOT}/zsh/conf.d/zsh-autosuggestions.zsh" "${ZSH_CONF_D_DIR}/zs
 
 # .local/share (zsh_history, etc)
 mkdir -p "${ZSH_LOCAL_SHARE_DIR}"
-moveFileIfExists "${HOME}/.zsh_history" "${ZSH_LOCAL_SHARE_DIR}/zsh_history"
-touch "${ZSH_LOCAL_SHARE_DIR}/zsh_history"
 
 createSymlink "${ZSH_CONFIG_DIR}/zshrc.zsh" "${HOME}/.zshrc"
 createSymlink "${ZSH_LOCAL_SHARE_DIR}/zsh_history" "${HOME}/.zsh_history"

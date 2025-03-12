@@ -31,6 +31,8 @@ GREP_OPTIONS='--color=auto'; export GREP_OPTIONS
 setopt HIST_IGNORE_SPACE  # Ignore commands that start with a space
 setopt HIST_IGNORE_DUPS   # Ignore duplicate commands in history
 
+HISTFILE="${HOME}/.local/share/mrb/zsh/zsh_history"
+
 # Set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
