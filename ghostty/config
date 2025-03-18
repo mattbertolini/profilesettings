@@ -2,3 +2,5 @@ macos-titlebar-style = native
 # Remove ligatures
 font-feature = -calt
 theme = Monokai Pro
+split-divider-color = #808080
+
