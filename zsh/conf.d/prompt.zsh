@@ -24,11 +24,15 @@ __setPrompt() {
     # Populate the git branch info
     local git_prompt="${vcs_info_msg_0_}"
 
+    # Use a shrunken path format (e.g. ~/o/p/test for ~/opt/projects/test)
+    local cur_dir="${PWD/#$HOME/~}"
+    local shrunk_cur_dir="$(__shrink_path "${cur_dir}")"
 
     # Set up the prompt. Terminals that support color will have color prompts.
     case "$TERM" in
     xterm-color|xterm-256color|screen-color|screen-256color|xterm-ghostty)
-        PROMPT="${green}%n@%m ${bold}%F{blue}%1~${bold_stop} %{%f%}${git_prompt}${exit_code_prompt}%# "
+        #PROMPT="${green}%n@%m ${bold}%F{blue}%1~${bold_stop} %{%f%}${git_prompt}${exit_code_prompt}%# "
+        PROMPT="${green}%n@%m ${bold}%F{blue}${shrunk_cur_dir}${bold_stop} %{%f%}${git_prompt}${exit_code_prompt}%# "
         ;;
     *)
         # Do nothing right now
