@@ -41,7 +41,12 @@ __shrink_path() {
             fi
         else
             # Take the first letter of intermediate directories
-            shortened_path+="${parts[$i]:0:1}/"
+            # For directories that begin with a dot, keep the dot and the first character
+            if [[ "${parts[$i]:0:1}" == "." ]]; then
+                shortened_path+="${parts[$i]:0:2}/"
+            else
+                shortened_path+="${parts[$i]:0:1}/"
+            fi
         fi
     done
 

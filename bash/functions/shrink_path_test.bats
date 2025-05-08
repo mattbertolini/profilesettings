@@ -73,3 +73,27 @@ load ./__shrink_path.bash
     [ "$status" -eq 0 ]
     [ "$output" = "/opt/test/dir/subdir/testing" ]
 }
+
+@test "Shrinks a directory that begins with a dot" {
+    run __shrink_path "~/.config/dir/subdir/another/testing"
+    [ "$status" -eq 0 ]
+    [ "$output" = "~/.c/d/s/a/testing" ]
+}
+
+@test "Shrinks a directory that begins with a dot (case sensitivity respected)" {
+    run __shrink_path "~/.Something/dir/subdir/another/testing"
+    [ "$status" -eq 0 ]
+    [ "$output" = "~/.S/d/s/a/testing" ]
+}
+
+@test "Large retain number keeps the full path (with a dot directory)" {
+    run __shrink_path "/opt/.test/dir/subdir/testing" 999
+    [ "$status" -eq 0 ]
+    [ "$output" = "/opt/.test/dir/subdir/testing" ]
+}
+
+@test "Preserve dot directory like regular directories" {
+    run __shrink_path "/opt/test/.dir/subdir/testing" 3
+    [ "$status" -eq 0 ]
+    [ "$output" = "/o/t/.dir/subdir/testing" ]
+}
