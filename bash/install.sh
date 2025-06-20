@@ -41,6 +41,7 @@ copyFile "${REPO_ROOT}/bash/conf.d/marks.bash" "${BASH_CONF_D_DIR}/marks.bash" "
 copyFile "${REPO_ROOT}/bash/conf.d/prompt.bash" "${BASH_CONF_D_DIR}/prompt.bash" "${OVERWRITE}"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/bash/conf.d/sdkman.bash" "${BASH_CONF_D_DIR}/sdkman.bash" "${OVERWRITE}"
+#copyFile "${REPO_ROOT}/bash/conf.d/mise.bash" "${BASH_CONF_D_DIR}/mise.bash" "${OVERWRITE}"
 
 # .local/share (bash_history, etc)
 mkdir -p "${BASH_LOCAL_SHARE_DIR}"

@@ -40,6 +40,7 @@ copyFile "${REPO_ROOT}/zsh/conf.d/prompt.zsh" "${ZSH_CONF_D_DIR}/prompt.zsh" "${
 copyFile "${REPO_ROOT}/zsh/conf.d/zsh-autosuggestions.zsh" "${ZSH_CONF_D_DIR}/zsh-autosuggestions.zsh" "${OVERWRITE}"
 # TODO: Only install if SDKMAN is installed
 #copyFile "${REPO_ROOT}/zsh/conf.d/sdkman.zsh" "${ZSH_CONF_D_DIR}/sdkman.zsh" "${OVERWRITE}"
+#copyFile "${REPO_ROOT}/zsh/conf.d/mise.zsh" "${ZSH_CONF_D_DIR}/mise.zsh" "${OVERWRITE}"
 
 # .local/share (zsh_history, etc)
 mkdir -p "${ZSH_LOCAL_SHARE_DIR}"
