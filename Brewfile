@@ -24,4 +24,3 @@ brew "zsh-autosuggestions"
 # gng - Gradle wrapper helper
 # https://github.com/gdubw/gng
 tap "gdubw/gng"
-brew "gng"
