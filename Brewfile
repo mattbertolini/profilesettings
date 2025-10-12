@@ -17,6 +17,7 @@ brew "loc"
 brew "mise"
 brew "ripgrep"
 brew "the_silver_searcher"
+brew "tree" if OS.mac?
 brew "vim"
 brew "wget"
 brew "zsh-autosuggestions"
